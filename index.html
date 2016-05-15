@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery AJAX</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$("#preuzmi").click(function() {
+			$.ajax({
+				url: "http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo",
+				type: "GET",
+				dataType: "json",
+				success: function(data) {
+					$(data.geonames).each(function(index, value) {
+						if (value.name == "Hong Kong") {
+							$("#grad").empty();
+							$("#stanovnici").empty();
+							$("#grad").append("Ime grada: " + value.name);
+							$("#stanovnici").append("Broj stanovnika: " + value.population);
+						}
+					});
+				}
+			});
+		});
+	});
+	</script>
+</head>
+<body>
+	<button id="preuzmi">Preuzmi podatke</button><br><br>
+	<div id="grad" style="color:#0000FF">Ime grada:</div>
+	<div id="stanovnici" style="color:#0000FF">Broj stanovnika:</div>
+</body>
+</html>

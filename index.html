@@ -2,33 +2,45 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>JQuery AJAX</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-	<script>
-	$(document).ready(function() {
-		$("#preuzmi").click(function() {
-			$.ajax({
-				url: "http://api.geonames.org/citiesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&lang=de&username=demo",
-				type: "GET",
-				dataType: "json",
-				success: function(data) {
-					$(data.geonames).each(function(index, value) {
-						if (value.name == "Hong Kong") {
-							$("#grad").empty();
-							$("#stanovnici").empty();
-							$("#grad").append("Ime grada: " + value.name);
-							$("#stanovnici").append("Broj stanovnika: " + value.population);
-						}
-					});
-				}
-			});
-		});
-	});
-	</script>
+	<title>Angular 2</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/stilovi.css">
+    <base href="/">
+
+    <!-- Ucitavamo biblioteke (Note: IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <!-- Dodajemo http biblioteku -->
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    
+    <!-- Dodajemo router biblioteku -->
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+
+    <!-- Konfigurisemo SystemJS -->
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/main').then(null, console.error.bind(console));
+    </script>
 </head>
 <body>
-	<button id="preuzmi">Preuzmi podatke</button><br><br>
-	<div id="grad" style="color:#0000FF">Ime grada:</div>
-	<div id="stanovnici" style="color:#0000FF">Broj stanovnika:</div>
+	<!-- Prikazujemo aplikaciju -->
+	<div class="container-fluid">
+    	<moja-aplikacija>Loading...</moja-aplikacija>
+	</div>
 </body>
 </html>

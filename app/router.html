@@ -1,0 +1,34 @@
+<div id="wrap">
+	<!-- Navigacioni meni -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a [routerLink]="['./Pocetna']" class="navbar-brand">MetHotels</a>
+			</div>
+			<div class="collapse navbar-collapse" id="mainNavBar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a [routerLink]="['./Pocetna']">Početna <span class="sr-only">(current)</span></a></li>
+					<li><a [routerLink]="['./Rezervacija']">Rezervacija</a></li>
+					<li><a [routerLink]="['./Onama']">O nama</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+
+<!-- Footer -->
+<div id="footer">
+	<div class="container-fluid text-center">
+		<p>Kontakt: stefanaritonovic@gmail.com</p>
+	</div>
+</div>

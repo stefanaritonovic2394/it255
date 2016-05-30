@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Dodavanje hotela</h1>
+    </div>
+    <div class="container">
+        <form role="form" [ngFormModel]="registerForm">
+            <div class="form-group">
+                <label for="imeHotela">Ime hotela:</label>
+                <input type="text" class="form-control" ngControl='imeHotela' placeholder="Unesite ime hotela">
+            </div>
+            <div class="form-group">
+                <label for="grad">Grad:</label>
+                <input type="text" class="form-control" ngControl='grad' placeholder="Unesite grad">
+            </div>
+            <div class="form-group">
+                <label for="zvezdica">Broj zvezdica:</label>
+                <input type="text" class="form-control" ngControl='zvezdica' placeholder="Unesite broj zvezdica">
+            </div>
+            <button (click)="onAddHotel()" class="btn btn-success">Dodaj hotel</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+	<form class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search" [(ngModel)]="broj_kreveta">
+		</div>
+	</form>
+	<div class="col-lg-12">
+		<br/>Sobe<br/> <br/>
+		<div *ngFor="#soba of sobe | SearchPipe:broj_kreveta">
+			ID sobe: {{soba.id}}
+			<br/>
+			Kategorija: {{soba.kategorija}}
+			<br/>
+			Broj sobe: {{soba.broj_sobe}}
+			<br/>
+			Broj kreveta: {{soba.broj_kreveta}}
+			<br/>
+			Broj kvadrata: {{soba.broj_kvadrata}}
+			<br/><br/>
+		</div>
+	</div>
+</div>

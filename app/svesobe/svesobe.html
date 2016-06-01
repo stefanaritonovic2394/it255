@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="col-lg-12">
+		<br>Sobe<br> <br>
+		<div *ngFor="#room of rooms">
+			Ime sobe: {{room.imesobe}}
+			<br/>
+			Kreveti: {{room.kreveti}}
+			<br/>
+			<span *ngIf="room.tv == '1'">
+				TV: Ima
+			</span>
+			<span *ngIf="room.tv != '1'">
+				TV: Nema
+			</span><br><br>
+		</div>
+	</div>
+</div>

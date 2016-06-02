@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="page-header">
+        <h1>Sve sobe</h1>
+    </div>
+    <div class="container">
+		<div class="col-lg-12">
+			<table class="display" cellspacing="0">
+			    <thead>
+		            <tr>
+		                <th>Ime sobe: </th>
+		                <th>Kreveti: </th>
+		                <th>TV: </th>
+		            </tr>
+		        </thead>
+	        
+		        <tbody>
+		            <tr *ngFor="#room of rooms">
+		                <th>{{room.imesobe}}</th>
+		                <th>{{room.kreveti}}</th>
+		                <th>
+		                	<span *ngIf="room.tv == '1'">
+								Ima
+							</span>
+							<span *ngIf="room.tv != '1'">
+								Nema
+							</span>
+						</th>
+		            </tr>
+		        </tbody>
+	    	</table>
+		</div>
+	</div>
+</div>

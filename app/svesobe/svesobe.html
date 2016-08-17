@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="page-header">
+        <h1>Sve sobe</h1>
+    </div>
+    <div class="container">
+		<div class="col-lg-12">
+			<table class="display" cellspacing="0">
+			    <thead>
+		            <tr>
+		                <th>Ime sobe: </th>
+		                <th>Kreveti: </th>
+		                <th>TV: </th>
+		                <th>Brisanje: </th>
+		            </tr>
+		        </thead>
+	        
+		        <tbody>
+		            <tr *ngFor="#room of rooms">
+		                <td>{{room.imesobe}}</td>
+		                <td>{{room.kreveti}}</td>
+		                <td>
+		                	<span *ngIf="room.tv == '1'">
+								Ima
+							</span>
+							<span *ngIf="room.tv != '1'">
+								Nema
+							</span>
+						</td>
+						<td>
+							<button class="btn btn-danger" title="ukloni" (click)="ukloniSobu(room.id)">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</td>
+		            </tr>
+		        </tbody>
+	    	</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,38 @@
+<div id="wrap">
+	<!-- Navigacioni meni -->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNavBar" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a [routerLink]="['./Pocetna']" class="navbar-brand">MetHotels</a>
+			</div>
+			<div class="collapse navbar-collapse" id="mainNavBar">
+				<ul class="nav navbar-nav">
+					<li [class.active]="router.isRouteActive(router.generate(['/Pocetna']))"><a [routerLink]="['./Pocetna']">Početna<span class="sr-only">(current)</span></a></li>
+					<li *ngIf="isAuth == 'no'" [class.active]="router.isRouteActive(router.generate(['/Registracija']))"><a [routerLink]="['./Registracija']">Registracija</a></li>  
+				  	<li *ngIf="isAuth == 'no'" [class.active]="router.isRouteActive(router.generate(['/Login']))"><a [routerLink]="['./Login']">Uloguj se</a></li>
+					<li [class.active]="router.isRouteActive(router.generate(['/DodajSobu']))"><a [routerLink]="['./DodajSobu']">Dodaj sobu</a></li>
+					<li *ngIf="isAuth == 'yes'" [class.active]="router.isRouteActive(router.generate(['/SveSobe']))"><a [routerLink]="['./SveSobe']">Sve sobe</a></li>
+					<li [class.active]="router.isRouteActive(router.generate(['/Onama']))"><a [routerLink]="['./Onama']">O nama</a></li>
+					<li *ngIf="isAuth == 'yes'" ><a (click)="onLogout()">Izloguj se</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+
+<!-- Footer -->
+<div id="footer">
+	<div class="container-fluid text-center">
+		<p>Kontakt: stefanaritonovic@gmail.com</p>
+	</div>
+</div>
